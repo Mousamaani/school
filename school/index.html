@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أكاديمية المستقبل - الصفحة الرئيسية</title>
+    <style>
+        :root {
+            --primary-color: #003366;
+            --secondary-color: #ffffff;
+            --accent-color: #ff6b00;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Tajawal', sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* الشريط العلوي */
+        .top-bar {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 10px 0;
+            font-size: 14px;
+        }
+        
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .social-icons a {
+            color: var(--secondary-color);
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        
+        /* شريط التنقل */
+        nav {
+            background-color: var(--secondary-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 50px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-right: 20px;
+        }
+        
+        .nav-links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            bottom: -5px;
+            right: 0;
+            transition: width 0.3s;
+        }
+        
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+        
+        /* الهيرو */
+        .hero {
+            background: linear-gradient(rgba(0, 51, 102, 0.3), rgba(0, 51, 102, 0.2)), url('bg2.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--secondary-color);
+            padding: 100px 0;
+            text-align: center;
+            width: 100%;
+            height: 80vh;
+        }
+        
+        .hero h1 {
+            font-size: 50px;
+            margin-top: 25px;
+            margin-bottom: 35px;
+        }
+        
+        .hero p {
+            font-size: 30px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* الأقسام */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+            bottom: 0;
+            right: 50%;
+            transform: translateX(50%);
+        }
+        
+        /* بطاقات الخدمات */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: var(--secondary-color);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        /* أخبار وفعاليات */
+        .news-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .news-item {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .news-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .news-content {
+            padding: 20px;
+        }
+        
+        .news-date {
+            color: var(--accent-color);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .news-content h3 {
+            margin-bottom: 10px;
+        }
+        
+    .vision-mission-section {
+        padding: 80px 0;
+        background-color: #f9f9f9;
+    }
+    
+    .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+    
+    .section-title h2 {
+        font-size: 36px;
+        color: #003366;
+        position: relative;
+        display: inline-block;
+        padding-bottom: 15px;
+    }
+    
+    .section-title h2:after {
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 3px;
+        background: #ff6b00;
+        bottom: 0;
+        right: 50%;
+        transform: translateX(50%);
+    }
+    
+    .vm-container {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+    
+    .vm-card {
+        flex: 1;
+        min-width: 300px;
+        max-width: 500px;
+        background: white;
+        padding: 40px 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        transition: transform 0.3s;
+    }
+    
+    .vm-card:hover {
+        transform: translateY(-10px);
+    }
+    
+    .vision-card {
+        border-top: 4px solid #003366;
+    }
+    
+    .mission-card {
+        border-top: 4px solid #ff6b00;
+    }
+    
+    .vm-icon {
+        font-size: 40px;
+        color: white;
+        background: #003366;
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        border-radius: 50%;
+        margin: 0 auto 20px;
+    }
+    
+    .mission-card .vm-icon {
+        background: #ff6b00;
+    }
+    
+    .vm-card h3 {
+        color: #003366;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .vm-card p {
+        color: #555;
+        line-height: 1.8;
+        font-size: 16px;
+    }
+    
+    @media (max-width: 768px) {
+        .vm-container {
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .vm-card {
+            width: 100%;
+        }
+    }
+
+        /* الفوتر */
+        footer {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: var(--accent-color);
+            bottom: 0;
+            right: 0;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+        
+        /* تصميم متجاوب */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 20px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- الشريط العلوي -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i>0796322845</span>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/people/%D9%85%D8%AF%D8%B1%D8%B3%D8%A9-%D8%B6%D8%A7%D8%AD%D9%8A%D8%A9-%D8%A7%D9%84%D8%A7%D9%85%D9%8A%D8%B1-%D8%B1%D8%A7%D8%B4%D8%AF-%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%88%D9%8A%D8%A9-%D8%A7%D9%84%D8%B4%D8%A7%D9%85%D9%84%D8%A9-%D8%A7%D9%84%D9%85%D8%AE%D8%AA%D9%84%D8%B7%D8%A9/100057652561054/"><i class="fab fa-facebook-f"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- شريط التنقل -->
+    <nav>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <img src="logo.jpg" alt="مدرسة ضاحية الأمير راشد">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">الرئيسية</a></li>
+                <li><a href="about.html">الأنشطةوالفعاليات</a></li>
+                <li><a href="services.html">مجلس الإدارة</a></li>
+                <li><a href="activities.html">Btec</a></li>
+                <li><a href="board.html">مرافق وخدمات</a></li>
+                <li><a href="contact.html">اتصل بنا</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- قسم الهيرو -->
+    <section class="hero">
+        <div class="container">
+            <h1>مدرسة ضاحية الأمير راشد الثانوية الشاملة</h1>
+            <p>نقدم تعليمًا متميزًا يواكب متطلبات العصر الحديث ويسهم في بناء جيل قادر على الابتكار والإبداع</p>
+        </div>
+    </section>
+    
+    <!-- خدمات المدرسة -->
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>خدماتنا التعليمية</h2>
+            </div>
+            <div class="services">
+                <div class="service-card">
+                    <img src="images/service1.jpg" alt="التعليم التفاعلي">
+                    <div class="service-content">
+                        <h3>التعليم التفاعلي</h3>
+                        <p>نقدم منهجًا تعليميًا تفاعليًا يجمع بين النظرية والتطبيق العملي لضمان فهم أعمق للمفاهيم.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="images/service2.jpg" alt="الأنشطة الطلابية">
+                    <div class="service-content">
+                        <h3>الأنشطة الطلابية</h3>
+                        <p>برامج متنوعة من الأنشطة الرياضية والفنية والعلمية لتنمية مواهب الطلاب.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="images/service3.jpg" alt="الدعم الأكاديمي">
+                    <div class="service-content">
+                        <h3>الدعم الأكاديمي</h3>
+                        <p>فصول تقوية وبرامج دعم فردية للطلاب الذين يحتاجون إلى مساعدة إضافية.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- قسم الرؤية والرسالة -->
+<section class="vision-mission-section">
+    <div class="container">
+        <div class="section-title">
+            <h2>رؤيتنا ورسالتنا</h2>
+        </div>
+        
+        <div class="vm-container">
+            <!-- بطاقة الرؤية -->
+            <div class="vm-card vision-card">
+                <div class="vm-icon">
+                    <i class="fas fa-eye"></i>
+                </div>
+                <h3>رؤيتنا</h3>
+                <p>مدرسة متطورة ومتفاعلة مع المجتمع المحلي قادرة على تخريج طالب متميز خاقيا وعلميا قادر على مواجهة تحديات العصر.</p>
+            </div>
+            
+            <!-- بطاقة الرسالة -->
+            <div class="vm-card mission-card">
+                <div class="vm-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h3>رسالتنا</h3>
+                    <p>تنمية مهنية لجميع العاملين وتفعيل الشراكة المجتمعية وغرس القيم الدينية والاخلاقية عند الطلبة, واستخدام التكنولوجيا الحديثة في جميع نواحي العملية التعليمية التعلمية.</p>
+            </div>
+        </div>
+    </div>
+</section>
+  
+    
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>عن المدرسة</h3>
+                    <p>نقدم تعليمًا متميزًا يواكب متطلبات العصر الحديث ويسهم في بناء جيل قادر على الابتكار والإبداع</p>
+                    <div class="social-icons" style="margin-top: 15px;">
+                        <a href="https://www.facebook.com/people/%D9%85%D8%AF%D8%B1%D8%B3%D8%A9-%D8%B6%D8%A7%D8%AD%D9%8A%D8%A9-%D8%A7%D9%84%D8%A7%D9%85%D9%8A%D8%B1-%D8%B1%D8%A7%D8%B4%D8%AF-%D8%A7%D9%84%D8%AB%D8%A7%D9%86%D9%88%D9%8A%D8%A9-%D8%A7%D9%84%D8%B4%D8%A7%D9%85%D9%84%D8%A9-%D8%A7%D9%84%D9%85%D8%AE%D8%AA%D9%84%D8%B7%D8%A9/100057652561054/" style="color: white; margin-right: 15px;"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="index.html" class="active">الرئيسية</a></li>
+                        <li><a href="about.html">الأنشطةوالفعاليات</a></li>
+                        <li><a href="services.html">مجلس الإدارة</a></li>
+                        <li><a href="activities.html">Btec</a></li>
+                        <li><a href="board.html">مرافق وخدمات</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>اتصل بنا</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> موقع مدرسة ضاحية الأمير راشد الثانوية الشاملة</li>
+                        <li><i class="fas fa-phone"></i> 0796322845</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>جميع الحقوق محفوظة &copy; مدرسة ضاحية الامير راشد 2025</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
